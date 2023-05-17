@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "Send a templated newsletter welcome email"
+
+Resources:
+  EmailTemplate:
+    Type: AWS::SES::Template
+    Properties:
+      Template:
+        TemplateName: "NewsletterWelcome"
+        HtmlPart: !Sub |
+          <!DOCTYPE html>
+          <html>
+              <head>
+                  <title>Email</title>
+              </head>
+              <body>
+                  <h1>Welcome to our newsletter</h1>
+                  <p>Hello {{name}},</p>
+                  <p>Thank you for signing up to our newsletter. We will send you regular updates.</p>
+                  <p>The newsletter team.</p>
+              </body>
+          </html>
+        SubjectPart: "Thanks for signing up {{name}}"
+        TextPart: "Hello {{name}}, thank you for signing up to our newsletter. We will send you regular updates."
+
+Outputs:
+  EmailTemplate:
+    Description: "The name of the email template"
+    Value: !Ref EmailTemplate

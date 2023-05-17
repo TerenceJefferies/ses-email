@@ -1,0 +1,12 @@
+{
+  "name": "quick-email",
+  "version": "1.0.0",
+  "description": "Send an email using Amazon SES",
+  "main": "send-email.js",
+  "keywords": [],
+  "author": "Terence Jefferies",
+  "license": "MIT",
+  "devDependencies": {
+    "@aws-sdk/client-ses": "^3.332.0"
+  }
+}
